@@ -1,0 +1,25 @@
+extends layout 
+block  contenido 
+    .contenido-superior.vacante.contenedor  
+        .caja   
+            p.etiqueta Empresa 
+            p.nombre=vacante.empresa 
+        .caja   
+            p.etiqueta Ubicacion 
+            p.nombre=vacante.ubicacion 
+        .caja   
+            p.etiqueta Contrato 
+            p.nombre.contrato=vacante.contrato  
+        .caja   
+            p.etiqueta Salario 
+            p.nombre=` $ ${vacante.salario}`
+    .vacante-contenedor.contenedor 
+        main.contenido
+            h2 descripcion de la vacante
+            .vacante-descripcion 
+                p.etiqueta=vacante.descripcion
+        a(href=`/vacante/editar/${vacante._id}` class="btn btn-amarillo editar-btn") Editar Vacante
+    .campo.centrar-horizontal
+         a.btn.btn-azul(href="/") Volver a  Vacantes
+
+

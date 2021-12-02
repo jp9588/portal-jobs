@@ -1,0 +1,36 @@
+extends layout 
+
+block contenido
+    main.contenedor 
+        form(action="/vacantes/nueva", method="POST" class="default-form")
+           
+            h3 Informacion General
+            p.tagline Llena el formulario para publicar tu vacante.
+            .campo  
+                label Titulo   
+                input(type="text" name="titulo" placeholder="Titulo de la vacante" required)   
+            .campo  
+                label Empresa  
+                input(type="text" name="empresa" placeholder="Tu empresa" required)   
+            .campo  
+                label Ubicacion  
+                input(type="text" name="ubicacion" placeholder="Ej. pais o remoto" required)
+            .campo  
+                label Salario 
+                input(type="text" name="salario" placeholder="$USD" required)
+            
+            .campo 
+                label Contrato 
+                select(name="contrato")
+                    option(value="" disabled selected) --Selecciona--
+                    option(value="freelance") Freelance
+                    option(value="tiempo completo") Tiempo Completo
+                    option(value="medio tiempo") Medio Tiempo
+                    option(value="por proyecto") Por Proyecto
+            .campo  
+                label Descripcion de la vacante & Skills requeridas
+                textarea#descripcion(name="descripcion", cols="30", rows="30" placeholder="Ej. skill requeridas" required)
+
+            .campo.centrar-horizontal
+                input.btn.btn-azul(type="submit", value="Publicar")
+                       

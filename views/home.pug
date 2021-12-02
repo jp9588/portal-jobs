@@ -1,0 +1,39 @@
+extends layout 
+
+block contenido
+    h1.nombre-sitio.contenedor  Portal de Empleos para Desarrolladores WEB 
+
+    .buscador 
+        form(action="#")
+            input.buscar(type="text")
+            input(type="submit" value="Bucar")
+    main.lista-vacantes 
+        h2 Lista de Vacantes 
+        if (vacantes.length )    
+            each v in vacantes  
+                .vacante 
+                    .caja   
+                        h3= v.empresa
+                        p.puesto= v.titulo 
+                    .caja
+                        p.etiqueta Contrato
+                        p.nombre.contrato= v.contrato
+                    .caja 
+                        p.etiqueta Ubicacion 
+                        p.nombre= v.ubicacion
+                    .caja.centrar-vertical 
+                        a(href=`/vacantes/info/${v._id}` class="btn btn-verde")  Mas Info.  
+
+       
+        //- .vacante 
+        //-     .caja   
+        //-         h3 Empresa 
+        //-         p.puesto Node Dev  
+        //-     .caja
+        //-         p.etiqueta Contrato
+        //-         p.nombre.contrato Tiempo Completo 
+        //-     .caja 
+        //-         p.etiqueta Ubicacion 
+        //-         p.nombre Remoto
+        //-     .caja.centrar-vertical 
+        //-         a(href="#" class="btn btn-verde")  Mas Info.

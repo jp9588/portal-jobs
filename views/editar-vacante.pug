@@ -1,0 +1,39 @@
+extends layout 
+block contenido
+     form(action=`/vacante/editar/${vacante._id}`, method="POST" class="default-form")
+           
+            h3 Informacion General
+            p.tagline Edita la vacante
+            .campo  
+                label Titulo   
+                input(type="text" name="titulo" value=`${vacante.titulo}`  required)   
+            .campo  
+                label Empresa  
+                input(type="text" name="empresa"  value=vacante.empresa  required)   
+            .campo  
+                label Ubicacion  
+                input(type="text" name="ubicacion"  value=vacante.ubicacion  required)
+            .campo  
+                label Salario 
+                input(type="text" name="salario"   value=vacante.salario  required)
+            
+            .campo 
+                label Contrato 
+                select(name="contrato")
+                    each contrato in contratos 
+                        if(vacante.contrato===contrato)
+                            option(value=`${contrato}` selected)=contrato
+                        else
+                            option( value=contrato )=contrato
+                        
+                    //- option(value="" disabled selected) --Selecciona--
+                    //- option( value="freelance" ) Freelance
+                    //- option(value="tiempo completo") Tiempo Completo
+                    //- option(value="medio tiempo" ) Medio Tiempo
+                    //- option(value="por proyecto" ) Por Proyecto
+            .campo  
+                label Descripcion de la vacante & Skills requeridas
+                textarea#descripcion(name="descripcion", cols="30", value rows="30"  required)=vacante.descripcion
+
+            .campo.centrar-horizontal
+                input.btn.btn-azul(type="submit", value="Editar")
