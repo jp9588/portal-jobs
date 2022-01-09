@@ -28,6 +28,10 @@ const vacanteSchema = mongoose.Schema({
 		type: String,
 		required: true,
 		trim: true
+	},
+	usuario: {
+		type: String,
+		required: true
 	}
 });
 

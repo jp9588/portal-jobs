@@ -1,0 +1,22 @@
+extends layout
+block contenido
+    main.lista-vacantes 
+        h2 Navegacion 
+        .botones.separador  
+            a.btn.btn-azul(href="/usuario/editar-perfil") Editar Perfil 
+            a.btn.btn-verde(href=`/vacantes/nueva`) Nueva Vacante 
+         
+        h2 Lista de Vacantes 
+        if (vacantes.length )    
+            each v in vacantes  
+                .vacante.panel-administracion 
+                    .caja   
+                        h3= v.empresa
+                        p.puesto= v.titulo                    
+                    .caja.centrar-vertical 
+                        a(href=`/vacante/editar/${v._id}` class="btn btn-amarillo editar-btn") Editar 
+                    .caja.centrar-vertical 
+                        a(href=`/vacante/candidatos/${v._id}` class="btn btn-verde editar-btn") Candidatos
+                    .caja.centrar-vertical 
+                        a(href=`/vacante/eliminar/${v._id}` class="btn btn-rojo editar-btn") Eliminar
+

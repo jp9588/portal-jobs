@@ -1,3 +1,4 @@
+const Usuarios = require('../models/Usuarios');
 const Vacantes = require('../models/Vacantes');
 
 exports.mostrarTrabajos = async (req, res) => {
@@ -6,6 +7,7 @@ exports.mostrarTrabajos = async (req, res) => {
 	res.render('home', {
 		nombrePagina: 'Portal Jobs',
 		crearNuevaVacante: true,
-		vacantes
+		vacantes,
+		rutaBtn: '/usuario/crear-nuevo'
 	});
 };

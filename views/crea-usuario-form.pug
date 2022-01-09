@@ -1,0 +1,21 @@
+extends layout 
+block contenido
+    main.contenedor 
+        if errors 
+            each error in errors    
+                .caja.error
+                    p=error.msg
+        form.default-form(action="/usuario/crear-nuevo", method="post") 
+            .campo 
+                label Nombre    
+                input(type="text" name="nombre" placeholder="Tu Nombre" required)
+            .campo 
+                label E-mail   
+                input(type="email" name="email" placeholder="Tu E-mail" required)
+            .campo 
+                label Password  
+                input(type="password" name="password" placeholder="Tu Password" required)
+            .campo 
+                button.btn.btn-verde(type="submit") Crear Usuario
+            .campo 
+                a(href="/login") Si ya estas registrado da click aqui !!

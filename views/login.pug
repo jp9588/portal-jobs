@@ -1,0 +1,19 @@
+extends layout 
+block contenido
+    main.contenedor 
+        if errors 
+            each error in errors    
+                .caja.error
+                    p=error.msg
+        form.default-form(action="/usuario/login", method="POST") 
+           
+            .campo 
+                label E-mail   
+                input(type="email" name="email" placeholder="Tu E-mail" required)
+            .campo 
+                label Password  
+                input(type="password" name="password" placeholder="Tu Password" required)
+            .campo 
+                button.btn.btn-verde(type="submit") Login
+            .campo 
+                a(href="/usuario/crear-nuevo") Crea una cuenta haciendo click aqui !!

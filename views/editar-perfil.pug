@@ -1,0 +1,20 @@
+extends layout 
+block contenido
+    main.contenedor 
+        if error               
+            .caja.error
+                p=error.msg
+        form(action="/usuario/editar-perfil" method="POST" class="default-form") 
+            .campo 
+                label(for="nombre") Nombre 
+                input(type="text" name="nombre" placeholder="Tu nombre" value=usuario.name required) 
+            .campo 
+                label(for="email") E-mail 
+                input(type="email" name="email" placeholder="Tu email" value=usuario.email required) 
+            .campo 
+                label(for="password") Password
+                input(type="password" name="password" placeholder="Tu password") 
+            .campo                 
+                input(type="submit" class="btn btn-azul" value="Guardar Cambios") 
+            
+            

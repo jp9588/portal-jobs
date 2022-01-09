@@ -1,17 +1,22 @@
 const Vacantes = require('../models/Vacantes');
 
 exports.crearVacante = (req, res) => {
+	//console.log(req.user._conditions._id);
+	//const idUsuario = req.params.id;
 	res.render('nueva-vacante', {
 		nombrePagina: 'Nueva Vacante'
+		//idUsuario
 	});
 };
 
 exports.guardarVacante = async (req, res) => {
+	const usuario = req.user._conditions._id;
+	//console.log(usuario);
 	const { titulo, empresa, ubicacion, salario, contrato, descripcion } = req.body;
 
-	await Vacantes.create({ titulo, empresa, ubicacion, salario, contrato, descripcion });
+	await Vacantes.create({ titulo, empresa, ubicacion, salario, contrato, descripcion, usuario });
 
-	res.redirect('/');
+	res.redirect('/administracion');
 };
 
 exports.mostrarVacante = async (req, res, next) => {
@@ -51,5 +56,5 @@ exports.actualizarVacante = async (req, res) => {
 
 	await vacante.save();
 
-	res.redirect('/');
+	res.redirect('/administracion');
 };
